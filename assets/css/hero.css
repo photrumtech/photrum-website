@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+#hero {
+  margin: 0;
+  font-family: "Audiowide", sans-serif;
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.hero-container {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  /* Animated Background */
+  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+  background-size: 200% 200%;
+  overflow: hidden;
+}
+
+.hero-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+h1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem); 
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  z-index: 2;
+}
+
+.cine-word {
+  position: relative;
+  opacity: 0;
+  transition: letter-spacing 0.5s ease;
+  animation: cinematicIntro 2s cubic-bezier(0.2, 1, 0.2, 1) forwards,
+    float 6s ease-in-out infinite 2s;
+}
+
+.cine-word span {
+  font-family: 'Audiowide', sans-serif;
+  background: linear-gradient(110deg, #888 30%, #fff 40%, #fff 60%, #888 70%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+.cine-word:hover {
+  letter-spacing: 0.05em;
+}
+
+.separator {
+  color: #7808d0; /* Match button color */
+  align-self: center;
+  font-size: 0.5em; 
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  text-shadow: 0 0 15px rgba(120, 8, 208, 0.8);
+}
+
+
+.cine-word:nth-child(1) {
+  animation-delay: 0.2s, 2.2s;
+}
+.separator:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.cine-word:nth-child(3) {
+  animation-delay: 0.8s, 2.8s;
+}
+.separator:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.cine-word:nth-child(5) {
+  animation-delay: 1.4s, 3.4s;
+}
+
+.sub-heading-wrapper {
+  font-family: "Audiowide", sans-serif;
+  font-size: clamp(1.2rem, 2.8vw, 2.1rem);
+  font-weight: 500;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+  min-height: 1.4em; 
+}
+
+.cycling-text {
+  font-family: "Audiowide", sans-serif; 
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  color: #7808d0; 
+}
+
+.cycling-text::before {
+  content: "Cybersecurity Training";
+  animation: cycleText 6s steps(1) infinite;
+}
+
+.hero-description {
+  font-family: "Space Mono", monospace;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #a3a3a3; 
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards 2s;
+}
+
+.button-wrapper {
+  z-index: 2;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards 2.2s;
+}
+
+.button {
+  --clr: #7808d0;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  border: none;
+  cursor: none !important;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--clr);
+  color: #fff;
+  border-radius: 10rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 10px 20px rgba(120, 8, 208, 0.3);
+}
+
+.button:hover {
+  background-color: #5a069e;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(120, 8, 208, 0.5);
+}
+
+.button__icon-wrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: var(--clr);
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.button:hover .button__icon-wrapper {
+  color: #000;
+}
+.button__icon-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+.button:hover .button__icon-svg:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+.button:hover .button__icon-svg--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+
+@keyframes bgPulse {
+  0%,
+  100% {
+    background-size: 200% 200%;
+  }
+  50% {
+    background-size: 220% 220%;
+  }
+}
+
+@keyframes cinematicIntro {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.2) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cycleText {
+  0%,
+  32% {
+    content: "Cybersecurity Training";
+  }
+  33%,
+  65% {
+    content: "VAPT Services";
+  }
+  66%,
+  100% {
+    content: "Capture the Flag";
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .cine-word {
+    animation: cinematicIntro 2s cubic-bezier(0.2, 1, 0.2, 1) forwards;
+  }
+  .separator {
+    display: none;
+  }
+  .sub-heading-wrapper {
+    margin-top: 1rem;
+  }
+}

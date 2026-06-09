@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://photrum.com/sitemap.xml
